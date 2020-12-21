@@ -1,13 +1,13 @@
 include(Catch)
 
-add_executable(music_test
+add_executable(${PROJECT_NAME}_test
     # TODO: <files>
     main.cpp
 )
 
-target_link_libraries(music_test
-    @namespace@::music
+target_link_libraries(${PROJECT_NAME}_test
+    tnt::${PROJECT_NAME}
     Catch2::Catch2WithMain
 )
 
-gtest_discover_tests(music_test)
+catch_discover_tests(${PROJECT_NAME}_test)

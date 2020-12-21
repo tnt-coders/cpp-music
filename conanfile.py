@@ -6,9 +6,9 @@ class CppMusic(ConanFile):
     default_options = {"shared": False}
     description = "C++ library for storing and analyzing musical data"
     exports_sources = "CMakeLists.txt", "docs/*", "include/*", "src/*", "test/*"
-    generators = "cmake"
+    generators = "cmake", "cmake_paths"
     license = "GNU Lesser General Public License v3.0"
-    name = "cpp-music"
+    name = "music"
     options = {"shared": [True, False]}
     settings = "os", "compiler", "build_type", "arch"
     topics = ("music")

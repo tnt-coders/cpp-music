@@ -1,8 +1,10 @@
 tnt_project_AddLibrary(${PROJECT_NAME}
   TARGET
-    music
+    ${PROJECT_NAME}
   SOURCES
-    music.cpp
+    note.cpp
 )
 
-target_compile_features(music PUBLIC cxx_std_17)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE tnt::math)
