@@ -1,22 +1,29 @@
 #include "note.hpp"
 
-#include <string>
+#include <array>
+#include <cassert>
+#include <cmath>
+#include <string_view>
 #include <tnt/math/math.hpp>
-#include <vector>
 
 namespace tnt::music
 {
 
-constexpr std::vector<std::string> NOTE_NAMES =
-    {"A", "A#/Bb", "B", "C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab"};
-
-constexpr int NOTES_PER_OCTAVE = static_cast<int>(NOTE_NAMES.size());
-
-const double a = pow(2, 1.0 / NOTES_PER_OCTAVE);
-
 Note::Note(double frequency, double f0)
     : m_frequency(frequency)
 {
+    assert(frequency > 0);
+
+    // Array containing possible note names in 12 tone equal temperament
+    constexpr std::array<std::string_view, 12> note_names =
+        {"A", "A#/Bb", "B", "C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab"};
+
+    // Number of notes per octave
+    constexpr int notes_per_octave = static_cast<int>(note_names.size());
+
+    // Constant used to calculate note values in 12 tone equal temperament
+    const auto a = std::pow(2, 1.0 / notes_per_octave);
+
     // Calculate the semitone offset "n" from f0
     // fn = f0*a^n
     // fn/f0 = a^n
@@ -24,19 +31,19 @@ Note::Note(double frequency, double f0)
     // n = log(fn/f0)/log(a)
     // Round "n" to the nearest integer to determine the offset. (This effectively gets the
     // quantized value.)
-    int n = static_cast<int>(round(log(frequency / f0) / log(a)));
+    const int n = static_cast<int>(std::round(std::log(frequency / f0) / std::log(a)));
 
     // Gets the name of the note from the semitone offset in relation to f0
     // The modulo operation gets the correct array index even if it is negative, or larger than the
     // size of the array.
-    m_name = NOTE_NAMES[static_cast<size_t>(math::mod(n, NOTES_PER_OCTAVE))];
+    m_name = note_names[math::mod(n, notes_per_octave)];
 
     // Integer division is intentional here. Start at 4 because f0 is the frequency of A4.
-    m_octave = 4 + n / NOTES_PER_OCTAVE;
+    m_octave = 4 + n / notes_per_octave;
 
     // Gets the frequency of "fn" the closest known musical note.
     // fn = f0*a^n
-    m_quantized_frequency = f0 * pow(a, n);
+    m_quantized_frequency = f0 * std::pow(a, n);
 }
 
 const double& Note::frequency() const
@@ -59,4 +66,4 @@ const int& Note::octave() const
     return m_octave;
 }
 
-} /* namespace tnt::music */
+}  // namespace tnt::music

@@ -2,6 +2,8 @@
 
 #include <string>
 
+// TODO: Track the type of note as well (quarter, eigth, sixteenth, etc.)
+
 namespace tnt::music
 {
 
@@ -63,4 +65,4 @@ private:
     double      m_quantized_frequency;
 };
 
-} /* namespace tnt::music */
+}  // namespace tnt::music
