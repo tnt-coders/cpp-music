@@ -14,7 +14,7 @@ class CppMusic(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     topics = ("music")
     url = "https://github.com/tnt-coders/cpp-music"
-    version = "0.0.0"
+    version = "1.0.0"
 
     def configure(self):
         tools.check_min_cppstd(self, "17")
