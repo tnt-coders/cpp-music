@@ -1,13 +1,6 @@
-# Overview
+# cpp-music
 
-cpp-music is an open source, cross platform, C++ library for storing and
-analyzing musical data
-
-## Documentation
-
-[![Documentation](https://codedocs.xyz/tnt-coders/cpp-music.svg)](https://codedocs.xyz/tnt-coders/cpp-music/)
-
-Documentation can be found at <https://codedocs.xyz/tnt-coders/cpp-music/>.
+cpp-music is an open source, cross platform, C++ library for storing and analyzing musical data.
 
 # Build Instructions
 
@@ -29,6 +22,5 @@ To test the project, run CTest from the build directory.
 
 ## Dependencies
 
-This project requires the Conan package manager to automatically manage all of
-its dependencies. To install Conan see:
-https://docs.conan.io/en/latest/installation.html
+This project requires the Conan package manager to automatically manage all of its dependencies. To
+install Conan see: https://docs.conan.io/en/latest/installation.html
