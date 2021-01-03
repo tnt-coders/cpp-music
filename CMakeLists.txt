@@ -7,7 +7,7 @@ project(music LANGUAGES CXX)
 include(FetchContent)
 FetchContent_Declare(cmake-modules
   GIT_REPOSITORY https://github.com/tnt-coders/cmake-modules.git
-  GIT_TAG main
+  GIT_TAG master
 )
 FetchContent_MakeAvailable(cmake-modules)
 
@@ -16,8 +16,8 @@ include(tnt/project/Project)
 
 # Initialize the project
 tnt_project_New(${PROJECT_NAME}
-  NAMESPACE tnt
   CONANFILE conanfile.py
+  NAMESPACE tnt
   VERSION_FROM_GIT
 )
 
@@ -37,3 +37,8 @@ add_subdirectory(test)
 
 # Install project targets
 tnt_project_Install(${PROJECT_NAME})
+
+# Create a conan package from the project
+tnt_project_Package(${PROJECT_NAME}
+  USER tnt-coders
+)
