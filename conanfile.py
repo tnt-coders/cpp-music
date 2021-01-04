@@ -18,9 +18,11 @@ class CppMusic(ConanFile):
 
     default_options = {
         "shared": False,
+        "boost:header_only": True,
     }
 
     build_requires = (
+        "boost/1.75.0",
         "catch2/3.0.0-1@tnt-coders/stable",
         "math/1.0.0@tnt-coders/stable",
     )
