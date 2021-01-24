@@ -9,6 +9,7 @@ add_executable(${PROJECT_NAME}_test
 target_link_libraries(${PROJECT_NAME}_test
     tnt::${PROJECT_NAME}
     tnt::math
+    Boost::headers
     Catch2::Catch2WithMain
 )
 

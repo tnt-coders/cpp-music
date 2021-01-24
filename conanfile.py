@@ -27,7 +27,7 @@ class CppMusic(ConanFile):
         "math/1.0.0@tnt-coders/stable",
     )
 
-    generators = ("cmake", "cmake_paths")
+    generators = ("cmake", "cmake_find_package", "cmake_paths")
 
     exports_sources = ("CMakeLists.txt", "docs/*", "include/*", "src/*", "test/*")
 
