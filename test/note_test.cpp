@@ -5,25 +5,25 @@
 
 using namespace tnt;
 
-struct NoteData
+struct note_data
 {
-    music::Note note;
+    music::note note;
     double      frequency;
     std::string name;
     int         octave;
     double      quantized_frequency;
 };
 
-TEST_CASE("Note accessors", "[Note][accessors]")
+TEST_CASE("note accessors", "[note][accessors]")
 {
-    std::vector<NoteData> notes;
-    notes.push_back({music::Note(16.35), 16.35, "C", 0, 16.35});
-    notes.push_back({music::Note(427.65), 427.65, "A", 4, 440});
-    notes.push_back({music::Note(432, 432), 432, "A", 4, 432});
-    notes.push_back({music::Note(440), 440, "A", 4, 440});
-    notes.push_back({music::Note(453.08), 453.08, "A#/Bb", 4, 466.16});
-    notes.push_back({music::Note(261.63), 261.63, "C", 4, 261.63});
-    notes.push_back({music::Note(7902.13), 7902.13, "B", 8, 7902.13});
+    std::vector<note_data> notes;
+    notes.push_back({music::note(16.35), 16.35, "C", 0, 16.35});
+    notes.push_back({music::note(427.65), 427.65, "A", 4, 440});
+    notes.push_back({music::note(432, 432), 432, "A", 4, 432});
+    notes.push_back({music::note(440), 440, "A", 4, 440});
+    notes.push_back({music::note(453.08), 453.08, "A#/Bb", 4, 466.16});
+    notes.push_back({music::note(261.63), 261.63, "C", 4, 261.63});
+    notes.push_back({music::note(7902.13), 7902.13, "B", 8, 7902.13});
 
     SECTION("frequency")
     {
