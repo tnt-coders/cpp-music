@@ -9,7 +9,7 @@
 namespace tnt::music
 {
 
-Note::Note(double frequency, double f0)
+note::note(double frequency, double f0)
     : m_frequency(frequency)
 {
     assert(frequency > 0);
@@ -46,22 +46,22 @@ Note::Note(double frequency, double f0)
     m_quantized_frequency = f0 * std::pow(a, n);
 }
 
-const double& Note::frequency() const
+const double& note::frequency() const
 {
     return m_frequency;
 }
 
-const double& Note::quantized_frequency() const
+const double& note::quantized_frequency() const
 {
     return m_quantized_frequency;
 }
 
-const std::string& Note::name() const
+const std::string& note::name() const
 {
     return m_name;
 }
 
-const int& Note::octave() const
+const int& note::octave() const
 {
     return m_octave;
 }

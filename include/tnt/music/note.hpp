@@ -12,13 +12,13 @@ namespace tnt::music
 
 This class represents musical note data. It provides a method for storing and retrieving information
 about musical notes. Note objects are created byproviding the frequency of the note. Attributes of
-the Note object are calculated from the equations given on the
+the note object are calculated from the equations given on the
 <a href="http://pages.mtu.edu/~suits/NoteFreqCalcs.html">Physics of Music - Notes</a> page. f0 (the
 reference frequency used to calculate the values of all notes) is 440 by default, but a custom value
-for f0 can be specified when creating a Note object. Currently only the standard 12-tone equal
+for f0 can be specified when creating a note object. Currently only the standard 12-tone equal
 temperament note system used in most Western music is supported.
 */
-class Note
+class note
 {
 public:
     /*!
@@ -32,7 +32,7 @@ public:
     \param frequency The frequency of the note in Hz
     \param f0 Reference frequency of A4 (default = 440Hz)
     */
-    Note(double frequency, double f0 = 440);
+    note(double frequency, double f0 = 440);
 
     /*!
     \brief Gets the frequency of the musical note

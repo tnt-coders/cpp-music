@@ -2,7 +2,7 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <catch2/catch_test_macros.hpp>
 
-TEST_CASE("Test", "[test]")
+TEST_CASE("test", "[test]")
 {
     boost::property_tree::ptree tree;
 
