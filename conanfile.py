@@ -24,7 +24,7 @@ class CppMusic(ConanFile):
     build_requires = (
         "boost/1.75.0",
         "catch2/3.0.0-1@tnt-coders/stable",
-        "math/1.0.0@tnt-coders/stable",
+        "math/1.0.1@tnt-coders/stable",
     )
 
     generators = ("cmake", "cmake_find_package", "cmake_paths")
